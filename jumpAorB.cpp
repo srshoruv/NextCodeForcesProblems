@@ -31,11 +31,10 @@ int main() {
     		int x = m / max(a,b);
     		m /= max(a,b);
     		int y = m / min(a,b);
-    		if ( x + y == n)
+    		if (x + y == n)
     		{
     			cout << "Yes\n";
-    		}
-    		
+    		}	
     	}
     	else
     	{
