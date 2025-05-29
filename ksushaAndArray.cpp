@@ -10,40 +10,35 @@ int main() {
 
     int n;
     cin >> n;
-    bool found = true;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++)
-    {
-    	cin >> v[i];
-    }
 
-    sort(v.begin(), v.end());
+    vector<int> vec(n);
 
     for (int i = 0; i < n; i++)
     {
-    	found = true;
-
-    	for (int j = n-1; j >= 0; j--)
-    	{
-    		if (v[j]%v[i] != 0)
-    		{
-    			found = false;
-    			break;
-    		}    		
-    	}
-
-    	if (found)
-    	{
-    		cout << v[i];
-    		return 0;
-    	}
-
-
+        cin >> vec[i];
     }
 
-    cout << -1 << endl;
+    int g = vec[0];
 
-    
-    
+    for (int i = 0; i < n; i++)
+    {
+
+       g = gcd(g,vec[i]); 
+    }
+
+    bool found = false;
+
+    for (int i = 0; i < n; i++)
+    {
+        if (vec[i] == g)
+        {
+            found = true;
+            break;
+        }
+    }
+
+    if (found) cout << g << endl;
+    else cout << -1 << endl;
+
     return 0;
 }
