@@ -1,8 +1,5 @@
-#ifdef LOCAL
 #include "bits/stdc++.h"
-#else
-#include <bits/stdc++.h>
-#endif
+//#include <bits/stdc++.h>
 using namespace std;
 
 #define ll long long
