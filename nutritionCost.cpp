@@ -27,103 +27,46 @@ int main() {
         	cin >> a[i];
         }
 
-// sorting in A basis
-
         for (int i = 0; i < n; i++)
         {
-        	cin >> b[i];
+            cin >> b[i];
         }
 
-        for (int i = 0 ; i < n; i++)
+
+        unordered_map<int, int> m;
+        for (int i = 0; i < n; i++)
         {
-        	for (int j = 0; j < n; j++)
-        	{
-        		if (a[i] < a[j])
-        		{
-        			swap(b[i],b[j]);
-        			swap(a[i],a[j]);
-        		}
-        	}
+            if (m.find(a[i])== m.end())
+            {
+                m[a[i]]= b[i];
+            }
+            else
+            {
+                m[a[i]] = min(m[a[i]],b[i]);
+            }
         }
 
-        
-// removing elements
+        int totalCost = 0;
+        int maxCost = 0;
 
-        for (int i = 0; i < a.size()-1; i++)
+        vector<int> v;
+
+        for (auto& cost: m)
         {
-        	if (a[i] == a[i+1])
-        	{
-        		if (b[i] < b[i+1])
-        		{
-        			a.erase(a.begin()+i+1);
-        			b.erase(b.begin()+i+1);
-        		}
-        		else
-        		{
-        			a.erase(a.begin()+i);
-        			b.erase(b.begin()+i);
-        		}
-        		
-        	}
+            v.push_back(cost.second);
         }
 
-        
+        sort(v.begin(), v.end());
 
-        // sorting in the B basis
-
-        for (int i = 0 ; i < a.size(); i++)
+        for (int i = 0; i < v.size(); i++)
         {
-        	for (int j = 0; j < a.size(); j++)
-        	{
-        		if (b[i] < b[j])
-        		{
-        			swap(b[i],b[j]);
-        			swap(a[i],a[j]);
-        		}
-        	}
+            totalCost += v[i];
+            int value = c * (i+1) - totalCost;
+            maxCost = max(maxCost, value);
         }
 
-        // for (int i = 0; i < a.size(); i++)
-        // {
-        // 	cout << a[i] << " ";
-        // }
-        // cout << endl;
-        // for (int i = 0; i < b.size(); i++)
-        // {
-        // 	cout << b[i] << " ";
-        // }
-
-        int sumB = 0;
-
-        for (int i = 0; i < b.size(); i++)
-        {
-        	sumB += b[i];
-        }
-
-        int res = c;
-        // bool isMod = false;
-
-
-        for (int i = 0; i < a.size(); i++)
-        {
-        	if (res < (c * (a.size() - i) - (sumB)))
-        	{
-        		res = (c * (a.size() - i) - (sumB));
-        		// isMod = true;
-        	}
-        	sumB -= b[a.size()-i-1];
-        }
-
-        if (res > c)
-        {
-        	cout << res << endl;
-        }
-        else
-        {
-        	cout << 0 << endl;
-        }
-
-        
+        cout << maxCost << endl;
+     
 
     }
 
