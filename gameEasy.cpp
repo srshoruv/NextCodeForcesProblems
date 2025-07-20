@@ -15,16 +15,27 @@ int main() {
     while (testCase--) 
     {
 
-        // Your code here
-        int a,b, odd = 0, even = 0;
-        cin >> a >> b;
-        int num = 1;
-        while ( odd != a && even != b)
-        {
+        int n;
+        cin >> n;
+        int sum = 0, x = 0;
 
+        vector<int> v(n);
+
+        for (int i = 0; i < n; i++) 
+        	cin >> v[i];
+
+        int i = 0;
+
+        for (int k = 1; k <= 2 * n; k++)
+        {
+        	while(k)
+        	{
+        		if(v[i] <= 1)
+        	}
         }
 
-        
+
+
     }
 
     return 0;

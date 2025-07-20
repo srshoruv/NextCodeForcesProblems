@@ -13,11 +13,19 @@ typedef vector<int> vi;
 
 void solve()
 {
-    int size;
-    cin >> size;
+    string s;
+    cin >> s;
+    string ans = "";
 
-    in(v,size);
-    fr(i,0,size) cout << v[i] << " ";
+    if (s.length() > 10)
+    {
+
+    	cout << s[0] + to_string(s.length()-2) + s[s.length()-1] << endl;
+    }
+    else
+    {
+    	cout << s << endl;
+    }
 }
 
 int32_t main() 
@@ -26,7 +34,6 @@ int32_t main()
 
     int t; cin >> t;
     while(t--) solve();
-    return 0;
 
     return 0;
 }

@@ -13,11 +13,17 @@ typedef vector<int> vi;
 
 void solve()
 {
-    int size;
-    cin >> size;
+    int x;
+    cin >> x;
 
-    in(v,size);
-    fr(i,0,size) cout << v[i] << " ";
+    if (x % 3 == 0)
+    {
+    	cout << "Second" << endl;
+    }
+    else
+    {
+    	cout << "First" << endl;
+    }
 }
 
 int32_t main() 
@@ -26,7 +32,6 @@ int32_t main()
 
     int t; cin >> t;
     while(t--) solve();
-    return 0;
 
     return 0;
 }

@@ -13,11 +13,18 @@ typedef vector<int> vi;
 
 void solve()
 {
-    int size;
-    cin >> size;
+    int x;
+    cin >> x;
+    vi v;
 
-    in(v,size);
-    fr(i,0,size) cout << v[i] << " ";
+    while (x)
+    {
+    	v.push_back(x%10);
+    	x /= 10;
+    }
+
+    cout << *min_element(all(v)) << endl;
+    
 }
 
 int32_t main() 

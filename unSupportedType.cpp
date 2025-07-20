@@ -13,20 +13,30 @@ typedef vector<int> vi;
 
 void solve()
 {
-    int size;
-    cin >> size;
+    int n,x;
+    cin >> n;
+    in(v,n);
+    cin >> x;
 
-    in(v,size);
-    fr(i,0,size) cout << v[i] << " ";
+    int cnt = count(v.begin(), v.end(),x);
+
+    if (cnt)
+    {
+    	cout << "Yes" << endl;
+    }
+    else
+    {
+    	cout << "No" << endl;
+    }
+
+    // cout << x << endl;
 }
 
 int32_t main() 
 {
     fastio;
 
-    int t; cin >> t;
-    while(t--) solve();
-    return 0;
+    solve();
 
     return 0;
 }

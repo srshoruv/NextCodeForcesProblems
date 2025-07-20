@@ -13,20 +13,42 @@ typedef vector<int> vi;
 
 void solve()
 {
-    int size;
-    cin >> size;
+    string s, s1;
+    cin >> s >> s1;
 
-    in(v,size);
-    fr(i,0,size) cout << v[i] << " ";
+    bool same = true;
+
+    if (s.length() != s1.length())
+    {
+    	same = false;
+    }
+    else
+    {
+    	fr(i,0,s.length())
+    	{
+    		if(s[i] != s1[s.length()-1-i])
+    		{
+    			same = false;
+    			break;
+    		}
+    	}
+    }
+
+    if (same)
+    {
+    	cout << "YES\n";
+    }
+    else
+    {
+    	cout << "NO\n";
+    }
 }
 
 int32_t main() 
 {
     fastio;
 
-    int t; cin >> t;
-    while(t--) solve();
-    return 0;
+	solve();
 
     return 0;
 }

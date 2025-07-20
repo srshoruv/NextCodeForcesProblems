@@ -13,11 +13,38 @@ typedef vector<int> vi;
 
 void solve()
 {
-    int size;
-    cin >> size;
+    int n, d;
+    cin >> n >> d;
+    int sum = d;
 
-    in(v,size);
-    fr(i,0,size) cout << v[i] << " ";
+    int fact = 1;
+
+    fr(i, 1, n+1)
+    {
+    	fact *= i;
+    }
+
+    fact--;
+
+    while (fact--)
+    {
+    	sum = (sum * 10) + d;
+    }
+
+    cout << sum;
+
+    fr (i,1,10)
+    {
+    	if (i % 2 == 1)
+    	{
+    		if (sum % i == 0)
+    		{
+    			cout << i << " ";
+    		}
+    	}
+    } 
+
+    cout << endl;
 }
 
 int32_t main() 
@@ -26,7 +53,6 @@ int32_t main()
 
     int t; cin >> t;
     while(t--) solve();
-    return 0;
 
     return 0;
 }

@@ -11,22 +11,38 @@ using namespace std;
 
 typedef vector<int> vi;
 
-void solve()
+int solve(int& ans)
 {
-    int size;
-    cin >> size;
+    string s;
+    cin >> s;
 
-    in(v,size);
-    fr(i,0,size) cout << v[i] << " ";
+    if (s == "X++" || s == "++X")
+    {
+    	ans++;
+    }
+    else
+    {
+    	ans--;
+    }
+
+    return ans;
 }
 
 int32_t main() 
 {
     fastio;
 
-    int t; cin >> t;
-    while(t--) solve();
-    return 0;
+    int ans = 0;
+    int tc;
+    cin >> tc;
+
+    while (tc--)
+    {
+    	solve(ans);
+    }
+
+    cout << ans << endl;
+	
 
     return 0;
 }

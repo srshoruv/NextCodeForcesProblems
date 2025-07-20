@@ -1,17 +1,22 @@
-#include <bits/stdc++.h>
+#include "bits/stdc++.h"
+//#include <bits/stdc++.h>
 using namespace std;
 
-#define ll long long
+#define int long long
 #define endl '\n'
+#define all(x) (x).begin(), (x).end()
+#define fr(i,a,b) for(int i = a; i < b; i++)
+#define in(v,n)  vi v(n); fr(i,0,n) cin>>v[i];
 #define fastio ios_base::sync_with_stdio(false); cin.tie(NULL);
 
-int main() {
-    fastio;
+typedef vector<int> vi;
 
+void solve()
+{
     int w;
     cin >> w;
 
-    if ( w % 2 == 0 && w != 2)
+    if (w > 2 && w % 2 == 0)
     {
     	cout << "YES\n";
     }
@@ -19,7 +24,13 @@ int main() {
     {
     	cout << "NO\n";
     }
+}
 
-	    
+int32_t main() 
+{
+    fastio;
+
+    solve();
+
     return 0;
 }

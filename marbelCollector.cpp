@@ -15,16 +15,20 @@ int main() {
     while (testCase--) 
     {
 
-        // Your code here
-        int a,b, odd = 0, even = 0;
-        cin >> a >> b;
-        int num = 1;
-        while ( odd != a && even != b)
-        {
+        int n,m;
+        cin >> n >> m;
 
+        set<int> s;
+
+        for (int i = 0; i < n; i++)
+        {
+        	int x;
+        	cin >> x;
+        	s.insert(x);
         }
 
-        
+        cout << m - s.size() << endl;
+
     }
 
     return 0;

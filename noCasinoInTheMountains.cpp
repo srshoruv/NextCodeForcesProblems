@@ -13,12 +13,41 @@ typedef vector<int> vi;
 
 void solve()
 {
-    int size;
-    cin >> size;
+    int n , k;
+    cin >> n >> k;
 
-    in(v,size);
-    fr(i,0,size) cout << v[i] << " ";
+    in(v,n);
+    int count = 0;
+
+	int i = 0;
+	
+	while(i + k <= n)
+	{
+		int temp = 0;
+
+		fr (j, i, i+k)
+		{
+			temp += v[j];
+
+		}
+
+		
+		if (!temp)
+		{
+			count++;
+			i += k+1;
+		}
+		else
+		{
+			i++;
+		}
+
+	}
+
+	cout << count << endl;
+
 }
+
 
 int32_t main() 
 {

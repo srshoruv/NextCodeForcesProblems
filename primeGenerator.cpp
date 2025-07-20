@@ -13,11 +13,31 @@ typedef vector<int> vi;
 
 void solve()
 {
-    int size;
-    cin >> size;
+    int m, n;
+    cin >> m >> n;
 
-    in(v,size);
-    fr(i,0,size) cout << v[i] << " ";
+    vector<int> isPrime(n+1, true);
+    isPrime[0] = isPrime[1] = false;
+
+    for (int i = 2; i * i <= n; i++)
+    {
+    	if (isPrime[i])
+    	{
+    		for (int j = i * i; j <= n; j+=i)
+    		{
+    			isPrime[j] = 0;
+    		}
+    	}
+    }
+
+    fr(i, m, n+1)
+    {
+    	if(isPrime[i])
+    	{
+    		cout << i << endl;
+    	}
+    }
+    cout << endl;
 }
 
 int32_t main() 
@@ -26,7 +46,6 @@ int32_t main()
 
     int t; cin >> t;
     while(t--) solve();
-    return 0;
 
     return 0;
 }

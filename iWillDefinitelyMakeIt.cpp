@@ -13,11 +13,10 @@ typedef vector<int> vi;
 
 void solve()
 {
-    int size;
-    cin >> size;
+    int n , k;
+    in (v,n);
 
-    in(v,size);
-    fr(i,0,size) cout << v[i] << " ";
+    
 }
 
 int32_t main() 

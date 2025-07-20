@@ -13,20 +13,34 @@ typedef vector<int> vi;
 
 void solve()
 {
-    int size;
-    cin >> size;
+    int n;
+    cin >> n;
 
-    in(v,size);
-    fr(i,0,size) cout << v[i] << " ";
+    int num = 8;
+
+    int res = 1;
+
+    while (n > 0)
+    {
+    	if (n % 2 == 1)
+    	{
+    		res = (res * num) % 10;
+    	}
+
+    	num = (num * num) % 10;
+    	n /= 2;
+    }
+
+    cout << res;
+
+
 }
 
 int32_t main() 
 {
     fastio;
 
-    int t; cin >> t;
-    while(t--) solve();
-    return 0;
+    solve();
 
     return 0;
 }

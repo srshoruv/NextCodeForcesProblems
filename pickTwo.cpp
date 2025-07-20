@@ -13,20 +13,35 @@ typedef vector<int> vi;
 
 void solve()
 {
-    int size;
-    cin >> size;
+    string s;
+    cin >> s;
 
-    in(v,size);
-    fr(i,0,size) cout << v[i] << " ";
+    int cnt = 0;
+
+    fr(i,0,s.length())
+    {
+        if (s[i]=='#')
+        {
+            cout << i + 1;
+            cnt++;
+
+            if (cnt == 1)
+            {
+                cout <<",";
+            }
+            else if (cnt == 2)
+            {
+                cout << endl;
+                cnt = 0;
+            }
+        }
+    }
 }
 
 int32_t main() 
 {
     fastio;
 
-    int t; cin >> t;
-    while(t--) solve();
-    return 0;
-
+    solve();
     return 0;
 }

@@ -1,60 +1,68 @@
-#include <bits/stdc++.h>
+#include "bits/stdc++.h"
+//#include <bits/stdc++.h>
 using namespace std;
 
-#define ll long long
+#define int long long
 #define endl '\n'
+#define all(x) (x).begin(), (x).end()
+#define fr(i,a,b) for(int i = a; i < b; i++)
+#define in(v,n)  vi v(n); fr(i,0,n) cin>>v[i];
 #define fastio ios_base::sync_with_stdio(false); cin.tie(NULL);
 
-int main() {
-    fastio;
+typedef vector<int> vi;
 
-    int n;
-    cin >> n;
-    vector<int> vec(n);
+void solve()
+{
+	int n;
+  	cin >> n;
 
-    int a = 0, b = 0;
+  	in(v,n);
+  	int turn = 0;
 
-    for (int i = 0; i < n; i++)
-    {
-    	cin >> vec[i];
-    }
+  	int sereja = 0, dima = 0, i = 0, j = n-1;
 
+  	while (turn < n)
+  	{
+  		if (turn%2 == 0)
+  		{
+  			if (v[i] > v[j])
+  			{
+  				sereja += v[i];
+  				i++;
+  			}
+  			else
+  			{
+  				sereja += v[j];
+  				j--;
+  			}
+  		}
 
-    int start = 0, end = n - 1;
+  		else
+  		{
+  			if (v[i] > v[j])
+  			{
+  				dima += v[i];
+  				i++;
+  			}
+  			else
+  			{
+  				dima += v[j];
+  				j--;
+  			}
+  		}
 
-    while (start < end)
-    {
-    	if (vec[start] < vec[end])
-    	{
-    		a += vec[end];
-    		--end;    	
-    	}
-    	else
-    	{
-    		a += vec[start];
-    		++start;
-    	}
+  		turn++;
 
-    	if (vec[start] < vec[end])
-    	{
-    		b += vec[end];
-    		--end;
-    	}
-    	else
-    	{
-    		b += vec[start];
-    		++start;
-    	}
+  	} 
 
-    	if (start == end)
-    	{
-    		a += vec[start];
-    	}
-    }
+  	cout << sereja << " " << dima << endl; 
+}
 
-    cout << a << " " << b << endl;
+int32_t main() 
+{
+	fastio;
 
-    
-    
+   	solve();
+
     return 0;
 }

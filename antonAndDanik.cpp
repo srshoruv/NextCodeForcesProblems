@@ -13,20 +13,45 @@ typedef vector<int> vi;
 
 void solve()
 {
-    int size;
-    cin >> size;
+    int x;
+    cin >> x;
 
-    in(v,size);
-    fr(i,0,size) cout << v[i] << " ";
+    string s;
+    cin >> s;
+
+    int ant =  0, da = 0;
+
+    fr(i,0,x)
+    {
+    	if (s[i]=='A')
+    	{
+    		ant++;
+    	}
+    	else
+    	{
+    		da++;
+    	}
+    }
+
+    if (ant > da)
+    {
+    	cout << "Anton\n";
+    }
+    else if (ant < da)
+    {
+    	cout << "Danik\n";
+    }
+    else
+    {
+    	cout << "Friendship\n";
+    }
 }
 
 int32_t main() 
 {
     fastio;
 
-    int t; cin >> t;
-    while(t--) solve();
-    return 0;
+	solve();
 
     return 0;
 }
