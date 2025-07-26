@@ -13,20 +13,34 @@ typedef vector<int> vi;
 
 void solve()
 {
-    string s;
-	cin >> s;
+    int n, c, cnt = 0;
+    cin >> n >> c;
 
-	transform(s.begin(), s.end(), s.begin(), 
-   	[](unsigned char c){ return toupper(c); });
+    in(v,n);
+    sort(all(v));
 
-	cout << s << endl;
+    if (v[0] >= c)
+    {
+    	cnt += v[0] - c;
+    	c += v[0] - c;
+    	
+    }
+
+    while (count(all(v), c) != 0)
+    {
+    	c++;
+    	cnt++;
+    }
+    cout << cnt << endl;
+
 }
 
 int32_t main() 
 {
     fastio;
 
-    solve();
+    int t; cin >> t;
+    while(t--) solve();
 
     return 0;
 }

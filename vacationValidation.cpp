@@ -13,20 +13,32 @@ typedef vector<int> vi;
 
 void solve()
 {
+    int n,l,r;
     string s;
-	cin >> s;
+    cin >> n >> l >> r >> s;
 
-	transform(s.begin(), s.end(), s.begin(), 
-   	[](unsigned char c){ return toupper(c); });
+    bool found = false;
 
-	cout << s << endl;
+    fr(i,l-1,r)
+    {
+    	if(s[i]=='x')
+    	{
+    		found = true;
+    		break;
+    	}
+    }
+
+    if (found) cout << "No\n";
+   	else cout << "Yes\n";
+
+
 }
 
 int32_t main() 
 {
     fastio;
 
-    solve();
+	solve();
 
     return 0;
 }

@@ -13,20 +13,49 @@ typedef vector<int> vi;
 
 void solve()
 {
-    string s;
-	cin >> s;
+    int n;
+    cin >> n;
+    int ans = 0, sum = 0, count = 0;
 
-	transform(s.begin(), s.end(), s.begin(), 
-   	[](unsigned char c){ return toupper(c); });
+    vi v;
+    fr(i,0,n)
+    {
+    	int x;
+    	cin >> x;
+    	v.push_back(x);
+    }
 
-	cout << s << endl;
+    sort(all(v));
+
+    fr(i,0,n)
+    {
+    	sum += v[i];
+    }
+
+
+	fr(i,0,n)
+	{
+		ans += v[n-i-1];
+		sum -= v[n-i-1];
+		count++;
+
+		if (ans > sum)
+		{
+			
+			cout << count << endl;
+			break;
+		}
+	}
+
+    
+
 }
 
 int32_t main() 
 {
     fastio;
 
-    solve();
+  	solve();
 
     return 0;
 }

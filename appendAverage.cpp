@@ -13,31 +13,41 @@ typedef vector<int> vi;
 
 void solve()
 {
-    int n;
-    cin >> n;
+    int n, k;
+    cin >> n >> k;
 
     in(v,n);
+    sort(all(v));
 
-    vi v1(n);
-
-    fr(i,0,n)
+    while(k--)
     {
-    	v1[v[i]-1]=i+1;
+    	if ((v[0]+v[1]) % 2 == 0)
+    	{
+    		int p = (v[0] + v[1]) / 2;
+    		v.push_back(p);
+    	}
+    	else
+    	{
+    		int p = (v[0] + v[1]+1) / 2;
+    		v.push_back(p);
+
+    	}
+    }
+    int sum = 0;
+    fr (i,0,v.size())
+    {
+    	sum += v[i];
     }
 
-    fr(i,0,n)
-    {
-    	cout << v1[i] << " ";
-    }
-    cout << endl;
-
+    cout << sum << endl;
 }
 
 int32_t main() 
 {
     fastio;
 
-	solve();
+    int t; cin >> t;
+    while(t--) solve();
 
     return 0;
 }

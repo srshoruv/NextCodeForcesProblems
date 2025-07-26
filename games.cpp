@@ -13,20 +13,43 @@ typedef vector<int> vi;
 
 void solve()
 {
-    string s;
-	cin >> s;
+    int n;
+    cin >> n;
 
-	transform(s.begin(), s.end(), s.begin(), 
-   	[](unsigned char c){ return toupper(c); });
+    int arr[n][2];
 
-	cout << s << endl;
+    fr(i,0,n)
+    {
+    	fr(j,0,2)
+    	{
+    		cin >> arr[i][j];
+    	}
+    }
+
+    int count = 0;
+
+    fr(i,0,n)
+    {
+
+	    fr(j,0,n)
+	    	{
+	    		if (arr[i][0] == arr[j][1])
+	    		{
+	    			count++;
+	    		}
+	    	}
+
+	    
+	}
+
+	cout << count << endl;
 }
 
 int32_t main() 
 {
     fastio;
 
-    solve();
+	solve();
 
     return 0;
 }

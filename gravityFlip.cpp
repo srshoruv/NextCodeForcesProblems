@@ -13,20 +13,24 @@ typedef vector<int> vi;
 
 void solve()
 {
-    string s;
-	cin >> s;
+    int n;
+    cin >> n;
 
-	transform(s.begin(), s.end(), s.begin(), 
-   	[](unsigned char c){ return toupper(c); });
+    in(v,n);
 
-	cout << s << endl;
+    sort(all(v));
+    for (auto x : v)
+    {
+    	cout << x << " ";
+    }
+    cout << endl;
 }
 
 int32_t main() 
 {
     fastio;
 
-    solve();
+	solve();
 
     return 0;
 }

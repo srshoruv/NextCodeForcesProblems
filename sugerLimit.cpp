@@ -13,20 +13,38 @@ typedef vector<int> vi;
 
 void solve()
 {
-    string s;
-	cin >> s;
+    int n;
+    cin >> n;
 
-	transform(s.begin(), s.end(), s.begin(), 
-   	[](unsigned char c){ return toupper(c); });
+    vector<pair<int, int>> p;
 
-	cout << s << endl;
+    in(v,n);
+    in(v1,n);
+
+    int ans = 0;
+
+    fr(l,1,101)
+    {
+    	int sum = 0;
+    	fr (i,0,n)
+    	{
+    		if (v[i] < 0 || v1[i] > l)
+    			continue;
+    		sum += v[i];
+    	}
+
+    	ans = max(ans, sum - l);
+    }
+
+    cout << ans << endl;
 }
 
 int32_t main() 
 {
     fastio;
 
-    solve();
+    int t; cin >> t;
+    while(t--) solve();
 
     return 0;
 }

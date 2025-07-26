@@ -16,28 +16,46 @@ void solve()
     int n;
     cin >> n;
 
-    in(v,n);
+    vi v;
 
-    vi v1(n);
+    int count = 0;
+    int i = 0;
 
-    fr(i,0,n)
+    while(n)
     {
-    	v1[v[i]-1]=i+1;
+    	int x = i;
+    	int lastDig = n % 10;
+    	if (lastDig != 0) 
+		{
+			count++;
+			int temp = lastDig;
+			while(x--)
+			{
+				temp *= 10;
+			}
+			v.push_back(temp);
+		}
+		n /= 10;
+		i++;
+		
+
     }
 
-    fr(i,0,n)
+    cout << count << endl;
+
+    fr(i,0,v.size())
     {
-    	cout << v1[i] << " ";
+    	cout << v[i] << " ";
     }
     cout << endl;
-
 }
 
 int32_t main() 
 {
     fastio;
 
-	solve();
+    int t; cin >> t;
+    while(t--) solve();
 
     return 0;
 }

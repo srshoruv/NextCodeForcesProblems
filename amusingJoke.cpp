@@ -13,20 +13,38 @@ typedef vector<int> vi;
 
 void solve()
 {
-    string s;
-	cin >> s;
+    string s1,s2,s3;
+    cin >> s1 >> s2 >> s3;
 
-	transform(s.begin(), s.end(), s.begin(), 
-   	[](unsigned char c){ return toupper(c); });
+    string s = s1+s2;
 
-	cout << s << endl;
+    int n = s.length();
+
+    while(n--)
+    {
+    	if(s3.find(s[n]) != string::npos)
+    	{
+    		s3.erase(s3.find(s[n]),1);
+    		s.erase(n,1);
+    	}
+    }
+
+    if (s.length() >= 1|| s3.length() >= 1)
+    {
+    	cout << "NO\n";
+    }
+    else
+    {
+    	cout << "YES\n";
+    }
+
 }
 
 int32_t main() 
 {
     fastio;
 
-    solve();
+	solve();
 
     return 0;
 }

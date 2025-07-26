@@ -14,19 +14,41 @@ typedef vector<int> vi;
 void solve()
 {
     string s;
-	cin >> s;
+    cin >> s;
 
-	transform(s.begin(), s.end(), s.begin(), 
-   	[](unsigned char c){ return toupper(c); });
+    size_t pos = s.find("WUB");
 
-	cout << s << endl;
+    while ( pos != string::npos)
+    {
+    	s.replace(pos,3," ");
+    	pos = s.find("WUB");
+    }
+
+	fr(i,0,s.length())
+	{
+		if(s[i]==' ' && s[i+1] == ' ')
+		{
+			s.erase(i,1);
+		}
+	}
+
+	if (s[0]==' ')
+	{
+		s.erase(0,1);
+	}
+	if (s[s.length()-1]==' ')
+	{
+		s.erase(s.length()-1,1);
+	}
+
+    cout << s << endl;
 }
 
 int32_t main() 
 {
     fastio;
 
-    solve();
+	solve();
 
     return 0;
 }

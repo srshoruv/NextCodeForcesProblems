@@ -13,20 +13,43 @@ typedef vector<int> vi;
 
 void solve()
 {
-    string s;
-	cin >> s;
+    int m,n;
+    cin >> n >> m;
+    string x, s;
+    cin >> x >> s;
 
-	transform(s.begin(), s.end(), s.begin(), 
-   	[](unsigned char c){ return toupper(c); });
+    int count = 0;
+    bool found = true;
 
-	cout << s << endl;
+    while (x.find(s)==string::npos)
+    {
+    	x += x;
+    	count++;
+
+    	if (count > 5)
+    	{
+    		found = false;
+    		break;
+    	}
+
+    }
+
+    if(found)
+    {
+    	cout << count << endl;
+    }
+    else
+    {
+    	cout << -1 << endl;
+    }
 }
 
 int32_t main() 
 {
     fastio;
 
-    solve();
+    int t; cin >> t;
+    while(t--) solve();
 
     return 0;
 }

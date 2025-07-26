@@ -14,19 +14,29 @@ typedef vector<int> vi;
 void solve()
 {
     string s;
-	cin >> s;
+    cin >> s;
 
-	transform(s.begin(), s.end(), s.begin(), 
-   	[](unsigned char c){ return toupper(c); });
+    transform(all(s),s.begin(), ::tolower);
 
-	cout << s << endl;
+    string s2 = "";
+
+    fr(i,0,s.length())
+    {
+    	if((s[i]!= 'a' )&& (s[i] != 'e') && (s[i] != 'i') && (s[i] != 'o') && (s[i] != 'u') && (s[i] != 'y'))
+    	{
+    		s2.push_back('.');
+    		s2.push_back(s[i]);
+    	}
+    }
+
+    cout << s2 << endl;
 }
 
 int32_t main() 
 {
     fastio;
 
-    solve();
+	solve();
 
     return 0;
 }

@@ -13,20 +13,27 @@ typedef vector<int> vi;
 
 void solve()
 {
-    string s;
-	cin >> s;
+    int n;
+    cin >> n;
+    int ans;
 
-	transform(s.begin(), s.end(), s.begin(), 
-   	[](unsigned char c){ return toupper(c); });
+    if (n % 2 == 1)
+    {
+    	ans = -1*((n/2) + 1);
+    }
+    else
+    {
+    	ans = n / 2;
+    }
 
-	cout << s << endl;
+    cout << ans;
 }
 
 int32_t main() 
 {
     fastio;
 
-    solve();
+	solve();
 
     return 0;
 }

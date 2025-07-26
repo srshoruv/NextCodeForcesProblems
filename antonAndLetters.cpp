@@ -14,19 +14,27 @@ typedef vector<int> vi;
 void solve()
 {
     string s;
-	cin >> s;
+    getline(cin, s);
+    set<char> s1;
 
-	transform(s.begin(), s.end(), s.begin(), 
-   	[](unsigned char c){ return toupper(c); });
+    fr(i,0,s.length())
+    {
+    	if(s[i] - 'a' >= 0 && s[i] - 'a' < 26)
+    	{
+    		s1.insert(s[i]);
+    	}
 
-	cout << s << endl;
+    }
+
+
+    cout << s1.size() << endl;
 }
 
 int32_t main() 
 {
     fastio;
 
-    solve();
+	solve();
 
     return 0;
 }

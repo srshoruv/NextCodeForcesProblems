@@ -16,21 +16,38 @@ void solve()
     int n;
     cin >> n;
 
-    in(v,n);
+    int count = 0;
 
-    vi v1(n);
-
-    fr(i,0,n)
+    while (n)
     {
-    	v1[v[i]-1]=i+1;
+    	if (n >= 100)
+    	{
+    		count += n / 100;
+    		n %= 100;
+    	}
+    	else if ( n >= 20)
+    	{
+    		count += n / 20;
+    		n %= 20;
+    	}
+    	else if ( n >= 10)
+    	{
+    		count += n / 10;
+    		n %= 10;
+    	}
+    	else if ( n >= 5)
+    	{
+    		count += n / 5;
+    		n %= 5;
+    	}
+    	else
+    	{
+    		count += n;
+    		n = 0;
+    	}
     }
 
-    fr(i,0,n)
-    {
-    	cout << v1[i] << " ";
-    }
-    cout << endl;
-
+    cout << count << endl;
 }
 
 int32_t main() 

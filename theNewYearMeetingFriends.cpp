@@ -13,20 +13,19 @@ typedef vector<int> vi;
 
 void solve()
 {
-    string s;
-	cin >> s;
+    int n = 3;
+    in(v,3);
 
-	transform(s.begin(), s.end(), s.begin(), 
-   	[](unsigned char c){ return toupper(c); });
+    sort(all(v));
 
-	cout << s << endl;
+    cout << abs(v[1]-v[0]) + abs(v[1]-v[2]) << endl;
 }
 
 int32_t main() 
 {
     fastio;
 
-    solve();
+	solve();
 
     return 0;
 }

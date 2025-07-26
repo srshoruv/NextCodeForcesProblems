@@ -13,20 +13,46 @@ typedef vector<int> vi;
 
 void solve()
 {
-    string s;
-	cin >> s;
+    int n, k;
+    cin >> n >> k;
 
-	transform(s.begin(), s.end(), s.begin(), 
-   	[](unsigned char c){ return toupper(c); });
+    vi odd;
+    vi even;
 
-	cout << s << endl;
+    fr(i,1,n+1)
+    {
+    	if(i%2 == 1)
+    	{
+    		odd.push_back(i);
+    	}
+    	else
+    	{
+    		even.push_back(i);
+    	}
+    }
+
+    int mid = n / 2;
+    if (n%2 == 1)
+    {
+    	mid++;
+    }
+
+    if (k > mid)
+    {
+    	cout << even[k-mid-1] << endl;
+    }
+    else
+    {
+    	cout << odd[k-1] << endl;
+    }
+
 }
 
 int32_t main() 
 {
     fastio;
 
-    solve();
+	solve();
 
     return 0;
 }

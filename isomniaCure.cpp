@@ -13,20 +13,31 @@ typedef vector<int> vi;
 
 void solve()
 {
-    string s;
-	cin >> s;
+    int k,l,m,n,d;
+    cin >> k >> l >> m >> n >> d;
 
-	transform(s.begin(), s.end(), s.begin(), 
-   	[](unsigned char c){ return toupper(c); });
+    if ( k == 1 || l == 1 || m == 1 || n == 1) cout << d << endl;
 
-	cout << s << endl;
+    else
+    {
+    	int count = 0;
+
+	    fr(i,1,d+1)
+	    {
+	    	if(i % k == 0 || i % l == 0 || i % m == 0 || i % n == 0)
+	    		count++;
+	    }
+
+    	cout << count << endl;
+	}
+
 }
 
 int32_t main() 
 {
     fastio;
 
-    solve();
+	solve();
 
     return 0;
 }

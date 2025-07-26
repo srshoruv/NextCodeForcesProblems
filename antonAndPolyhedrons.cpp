@@ -13,20 +13,31 @@ typedef vector<int> vi;
 
 void solve()
 {
-    string s;
-	cin >> s;
+    int x;
+    cin >> x;
 
-	transform(s.begin(), s.end(), s.begin(), 
-   	[](unsigned char c){ return toupper(c); });
+    int total = 0;
 
-	cout << s << endl;
+    while(x--)
+    {
+    	string s;
+    	cin >> s;
+
+    	if (s == "Tetrahedron") total += 4;
+    	else if (s == "Cube") total += 6;
+    	else if (s == "Octahedron") total += 8;
+    	else if (s == "Dodecahedron") total += 12;
+    	else if (s == "Icosahedron") total += 20;
+    }
+
+    cout << total << endl;
 }
 
 int32_t main() 
 {
     fastio;
 
-    solve();
+	solve();
 
     return 0;
 }
