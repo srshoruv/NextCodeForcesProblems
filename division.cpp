@@ -16,49 +16,31 @@ void solve()
     int n;
     cin >> n;
 
-    in(v,n);
-    int maxPos = 0, minPos = 0;
-
-    int minVal = *min_element(all(v));
-    int maxVal = *max_element(all(v));
-
-    fr(i,0,n)
+    if (n <= 1399)
     {
-    	if(v[i]==minVal)
-    	{
-    		minPos = i;
-    	}
-
+    	cout << "Division 4\n";
+    }
+    else if ( n <= 1599)
+    {
+    	cout << "Division 3\n";
+    }
+    else if (n <= 1899)
+    {
+    	cout << "Division 2\n";
+    }
+    else
+    {
+    	cout << "Division 1\n";
     }
 
-    fr(i,0,n)
-    {
-
-        if(v[i]==maxVal)
-        {
-            maxPos = i;
-            break;
-        }
-
-    }
-
-
-    if ((maxPos > minPos) && (( n - 1 - minPos) != 0))
-    {
-    	minPos++;
-    }
-
-    cout << maxPos + abs(n - 1 - minPos) << endl;
-
-
-    
 }
 
 int32_t main() 
 {
     fastio;
 
-	solve();
+    int t; cin >> t;
+    while(t--) solve();
 
     return 0;
 }

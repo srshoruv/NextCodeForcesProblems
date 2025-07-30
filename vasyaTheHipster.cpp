@@ -13,29 +13,10 @@ typedef vector<int> vi;
 
 void solve()
 {
-    string s,s1;
-    cin >> s;
-    s1 = "HQ9";
+    int a,b;
+    cin >> a >> b;
 
-    bool found = false;
-
-    fr(i,0,s.length())
-    {
-    	if (s1.find(s[i]) != string::npos)
-    	{
-    		found = true;
-    		break;
-    	}
-    }
-
-    if (found)
-    {
-    	cout << "YES\n";
-    }
-    else
-    {
-    	cout << "NO\n";
-    }
+    cout << min(a,b) << " " << (max(a,b) - min(a,b)) / 2 << endl;
 }
 
 int32_t main() 

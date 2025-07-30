@@ -13,35 +13,30 @@ typedef vector<int> vi;
 
 void solve()
 {
-    string s,s1;
-    cin >> s;
-    s1 = "HQ9";
+    int n,m;
+    cin >> n >> m;
 
-    bool found = false;
+    in(v,m);
 
-    fr(i,0,s.length())
+    sort(all(v));
+
+    int i = 0;
+
+    int minDiff = v[n-1] - v[0];
+
+    while(i + n <= m)
     {
-    	if (s1.find(s[i]) != string::npos)
-    	{
-    		found = true;
-    		break;
-    	}
+    	int temp = v[i+n-1] - v[i];
+    	minDiff = min(minDiff,temp);
+    	i++;
     }
 
-    if (found)
-    {
-    	cout << "YES\n";
-    }
-    else
-    {
-    	cout << "NO\n";
-    }
+    cout << minDiff << endl;
 }
 
 int32_t main() 
 {
     fastio;
-
 	solve();
 
     return 0;

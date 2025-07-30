@@ -13,36 +13,41 @@ typedef vector<int> vi;
 
 void solve()
 {
-    string s,s1;
-    cin >> s;
-    s1 = "HQ9";
+    int n;
+    cin >> n;
 
-    bool found = false;
+    in(v,n);
 
-    fr(i,0,s.length())
-    {
-    	if (s1.find(s[i]) != string::npos)
-    	{
-    		found = true;
-    		break;
-    	}
-    }
+    vector<bool> isVisited(n, false);
+    
+    int score = 0;
 
-    if (found)
-    {
-    	cout << "YES\n";
-    }
-    else
-    {
-    	cout << "NO\n";
-    }
+
+	fr(i,0,n)
+	{
+		fr(j, i+1, n)
+		{
+			if(v[i]==v[j] && (!isVisited[i] && !isVisited[j]))
+			{
+				score++;
+				isVisited[i]=true;
+				isVisited[j]=true;
+				break;				
+			}
+		}
+	}
+
+
+	cout << score << endl;
+
 }
 
 int32_t main() 
 {
     fastio;
 
-	solve();
+    int t; cin >> t;
+    while(t--) solve();
 
     return 0;
 }

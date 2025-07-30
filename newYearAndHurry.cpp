@@ -13,29 +13,26 @@ typedef vector<int> vi;
 
 void solve()
 {
-    string s,s1;
-    cin >> s;
-    s1 = "HQ9";
+    int n,k;
+    cin >> n >> k;
 
-    bool found = false;
+    int hasTime = 240 - k;
 
-    fr(i,0,s.length())
+    int sum = 0;
+
+    int count = 0;
+
+    fr(i,1,n+1)
     {
-    	if (s1.find(s[i]) != string::npos)
+    	sum += (5 * i);
+    	if (sum <= hasTime)
     	{
-    		found = true;
-    		break;
+    		count++;
     	}
     }
 
-    if (found)
-    {
-    	cout << "YES\n";
-    }
-    else
-    {
-    	cout << "NO\n";
-    }
+    cout << count << endl;
+
 }
 
 int32_t main() 

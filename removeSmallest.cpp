@@ -17,48 +17,40 @@ void solve()
     cin >> n;
 
     in(v,n);
-    int maxPos = 0, minPos = 0;
+    sort(all(v));
 
-    int minVal = *min_element(all(v));
-    int maxVal = *max_element(all(v));
+    bool sats = true;
 
-    fr(i,0,n)
+    if (n==1)
     {
-    	if(v[i]==minVal)
-    	{
-    		minPos = i;
-    	}
-
+    	sats = true;
+    }
+    else
+    {
+    	fr(i,1,n)
+	    {
+	    	if(abs(v[i]-v[i-1]) > 1)
+	    	{
+	    		sats = false;
+	    		break;
+	    	}
+	    }
     }
 
-    fr(i,0,n)
-    {
-
-        if(v[i]==maxVal)
-        {
-            maxPos = i;
-            break;
-        }
-
-    }
-
-
-    if ((maxPos > minPos) && (( n - 1 - minPos) != 0))
-    {
-    	minPos++;
-    }
-
-    cout << maxPos + abs(n - 1 - minPos) << endl;
-
+    if (sats) cout << "YES\n";
+    else cout << "NO\n";
 
     
+
+
 }
 
 int32_t main() 
 {
     fastio;
 
-	solve();
+    int t; cin >> t;
+    while(t--) solve();
 
     return 0;
 }

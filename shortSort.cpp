@@ -13,36 +13,39 @@ typedef vector<int> vi;
 
 void solve()
 {
-    string s,s1;
+    string s;
     cin >> s;
-    s1 = "HQ9";
 
-    bool found = false;
+    int i = 3;
+    bool same = false;
 
-    fr(i,0,s.length())
+    while(i--)
     {
-    	if (s1.find(s[i]) != string::npos)
+    	if(same) break;
+    	fr(j,0,3)
     	{
-    		found = true;
-    		break;
+    		swap(s[i],s[j]);
+
+    		if (s=="abc")
+    		{
+    			same = true;
+    			break;
+    		}
+    		swap(s[i],s[j]);
+
     	}
     }
 
-    if (found)
-    {
-    	cout << "YES\n";
-    }
-    else
-    {
-    	cout << "NO\n";
-    }
+    if (same) cout << "YES\n";
+    else cout << "NO\n";
 }
 
 int32_t main() 
 {
     fastio;
 
-	solve();
+    int t; cin >> t;
+    while(t--) solve();
 
     return 0;
 }

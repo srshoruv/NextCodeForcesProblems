@@ -13,36 +13,43 @@ typedef vector<int> vi;
 
 void solve()
 {
-    string s,s1;
-    cin >> s;
-    s1 = "HQ9";
+    int s,n;
+    cin >> s >> n;
 
-    bool found = false;
+    vector<pair<int,int>> v;
 
-    fr(i,0,s.length())
+    while(n--)
     {
-    	if (s1.find(s[i]) != string::npos)
+    	int x, y;
+    	cin >> x >> y;
+    	
+    	v.push_back(make_pair(x,y));
+    }
+
+    sort(all(v));
+
+    fr(i, 0, v.size())
+    {
+    	if(v[i].first < s)
     	{
-    		found = true;
-    		break;
+    		s += v[i].second;
+    	}
+    	else
+    	{
+    		cout << "NO\n";
+    		return;
     	}
     }
 
-    if (found)
-    {
-    	cout << "YES\n";
-    }
-    else
-    {
-    	cout << "NO\n";
-    }
+    cout << "YES\n";
+
 }
 
 int32_t main() 
 {
     fastio;
 
-	solve();
+    solve();
 
     return 0;
 }

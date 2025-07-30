@@ -13,29 +13,24 @@ typedef vector<int> vi;
 
 void solve()
 {
-    string s,s1;
-    cin >> s;
-    s1 = "HQ9";
+    int n;
+    cin >> n;
 
-    bool found = false;
+    int countA = 0, countB = 0, countC = 0;
 
-    fr(i,0,s.length())
-    {
-    	if (s1.find(s[i]) != string::npos)
-    	{
-    		found = true;
-    		break;
-    	}
+    while(n--)
+    { 
+    	int a,b,c;
+    	cin >> a >> b >> c;
+
+    	countA += a;
+    	countB += b;
+    	countC += c;
+    	
     }
 
-    if (found)
-    {
-    	cout << "YES\n";
-    }
-    else
-    {
-    	cout << "NO\n";
-    }
+    if (countA || countB || countC) cout << "NO\n";
+    else cout << "YES\n";
 }
 
 int32_t main() 

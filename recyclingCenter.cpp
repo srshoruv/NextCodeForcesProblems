@@ -13,52 +13,55 @@ typedef vector<int> vi;
 
 void solve()
 {
-    int n;
-    cin >> n;
+    int n, c;
+    cin >> n >> c;
 
     in(v,n);
-    int maxPos = 0, minPos = 0;
 
-    int minVal = *min_element(all(v));
-    int maxVal = *max_element(all(v));
+    sort(all(v));
+
+    int idx;
 
     fr(i,0,n)
     {
-    	if(v[i]==minVal)
+    	if(v[i] > c)
     	{
-    		minPos = i;
+    		idx = i;
+    		break;
+    	}
+    }
+
+    int mult = 1;
+    int temp = idx;
+    int coin = 0;
+    int prev = 0;
+    --temp;
+
+    while(temp >= 0)
+    {
+    	if (v[temp] * mult > c)
+    	{
+    		prev++;
+    	}
+    	else
+    	{
+    		mult *= 2;
     	}
 
+    	temp--;
     }
 
-    fr(i,0,n)
-    {
+    coin += (n-idx+prev);
 
-        if(v[i]==maxVal)
-        {
-            maxPos = i;
-            break;
-        }
-
-    }
-
-
-    if ((maxPos > minPos) && (( n - 1 - minPos) != 0))
-    {
-    	minPos++;
-    }
-
-    cout << maxPos + abs(n - 1 - minPos) << endl;
-
-
-    
+    cout << coin << endl;
 }
 
 int32_t main() 
 {
     fastio;
 
-	solve();
+    int t; cin >> t;
+    while(t--) solve();
 
     return 0;
 }

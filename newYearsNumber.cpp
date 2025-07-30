@@ -15,50 +15,28 @@ void solve()
 {
     int n;
     cin >> n;
-
-    in(v,n);
-    int maxPos = 0, minPos = 0;
-
-    int minVal = *min_element(all(v));
-    int maxVal = *max_element(all(v));
-
-    fr(i,0,n)
-    {
-    	if(v[i]==minVal)
-    	{
-    		minPos = i;
-    	}
-
-    }
-
-    fr(i,0,n)
-    {
-
-        if(v[i]==maxVal)
-        {
-            maxPos = i;
-            break;
-        }
-
-    }
-
-
-    if ((maxPos > minPos) && (( n - 1 - minPos) != 0))
-    {
-    	minPos++;
-    }
-
-    cout << maxPos + abs(n - 1 - minPos) << endl;
-
-
     
+    if (n < 2020)
+    {
+    	cout << "NO\n";
+    }
+
+    else if (n % 2020 == 0 || n % 2021 == 0 || n % 2020 <= n / 2020)
+    {
+    	cout << "YES\n";
+    }
+    else
+    {
+    	cout << "NO\n";
+    }
 }
 
 int32_t main() 
 {
     fastio;
 
-	solve();
+    int t; cin >> t;
+    while(t--) solve();
 
     return 0;
 }

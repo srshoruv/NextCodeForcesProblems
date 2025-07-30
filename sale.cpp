@@ -13,45 +13,25 @@ typedef vector<int> vi;
 
 void solve()
 {
-    int n;
-    cin >> n;
+    int n,m;
+    cin >> n >> m;
 
     in(v,n);
-    int maxPos = 0, minPos = 0;
 
-    int minVal = *min_element(all(v));
-    int maxVal = *max_element(all(v));
+    sort(all(v));
 
-    fr(i,0,n)
+    int profit = 0;
+
+    for(int i = 0; i < m; i++)
     {
-    	if(v[i]==minVal)
+    	if (v[i] < 0)
     	{
-    		minPos = i;
+    		profit += v[i] * -1;
     	}
-
+    	
     }
 
-    fr(i,0,n)
-    {
-
-        if(v[i]==maxVal)
-        {
-            maxPos = i;
-            break;
-        }
-
-    }
-
-
-    if ((maxPos > minPos) && (( n - 1 - minPos) != 0))
-    {
-    	minPos++;
-    }
-
-    cout << maxPos + abs(n - 1 - minPos) << endl;
-
-
-    
+    cout << profit << endl;
 }
 
 int32_t main() 

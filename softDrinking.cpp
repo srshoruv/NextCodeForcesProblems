@@ -13,29 +13,12 @@ typedef vector<int> vi;
 
 void solve()
 {
-    string s,s1;
-    cin >> s;
-    s1 = "HQ9";
+    int n, k, l, c, d, p, nl, np;
+    cin >> n >> k >> l >> c >> d >> p >> nl >> np;
 
-    bool found = false;
+    int ans = min((k*l)/n,min(c*d,p/np)) / n;
 
-    fr(i,0,s.length())
-    {
-    	if (s1.find(s[i]) != string::npos)
-    	{
-    		found = true;
-    		break;
-    	}
-    }
-
-    if (found)
-    {
-    	cout << "YES\n";
-    }
-    else
-    {
-    	cout << "NO\n";
-    }
+    cout << ans << endl;
 }
 
 int32_t main() 

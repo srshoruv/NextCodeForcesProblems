@@ -16,49 +16,25 @@ void solve()
     int n;
     cin >> n;
 
-    in(v,n);
-    int maxPos = 0, minPos = 0;
-
-    int minVal = *min_element(all(v));
-    int maxVal = *max_element(all(v));
+    int sum = 0;
 
     fr(i,0,n)
     {
-    	if(v[i]==minVal)
-    	{
-    		minPos = i;
-    	}
-
+    	int x;
+    	cin >> x;
+    	sum += x;
     }
 
-    fr(i,0,n)
-    {
-
-        if(v[i]==maxVal)
-        {
-            maxPos = i;
-            break;
-        }
-
-    }
-
-
-    if ((maxPos > minPos) && (( n - 1 - minPos) != 0))
-    {
-    	minPos++;
-    }
-
-    cout << maxPos + abs(n - 1 - minPos) << endl;
-
-
-    
+    if (sum%2 == 0) cout << "YES\n";
+    else cout << "NO\n";
 }
 
 int32_t main() 
 {
     fastio;
 
-	solve();
+    int t; cin >> t;
+    while(t--) solve();
 
     return 0;
 }

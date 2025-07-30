@@ -19,27 +19,19 @@ void solve()
     in(v,n);
     int count = 0;
 
-	int i = 0;
 	
-	while(i + k <= n)
+	fr(i,0,n)
 	{
 		int temp = 0;
-
-		fr (j, i, i+k)
+		fr(j,i,i+k)
 		{
 			temp += v[j];
-
 		}
 
-		
-		if (!temp)
+		if(!temp) 
 		{
 			count++;
-			i += k+1;
-		}
-		else
-		{
-			i++;
+			i += k;
 		}
 
 	}

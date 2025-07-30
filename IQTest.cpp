@@ -17,41 +17,40 @@ void solve()
     cin >> n;
 
     in(v,n);
-    int maxPos = 0, minPos = 0;
 
-    int minVal = *min_element(all(v));
-    int maxVal = *max_element(all(v));
+    int oddCount = 0, evenCount = 0;
 
-    fr(i,0,n)
+    fr(i,0,3)
     {
-    	if(v[i]==minVal)
+    	if(v[i] % 2 == 1)
     	{
-    		minPos = i;
+    		oddCount++;
     	}
-
+    	else evenCount++;
     }
 
-    fr(i,0,n)
+    if (oddCount > evenCount)
     {
-
-        if(v[i]==maxVal)
-        {
-            maxPos = i;
-            break;
-        }
-
+    	fr(i,0,n)
+    	{
+    		if(v[i]%2==0)
+    		{
+    			cout << i+1 << endl;
+    			break;
+    		}
+    	}
     }
-
-
-    if ((maxPos > minPos) && (( n - 1 - minPos) != 0))
+    else
     {
-    	minPos++;
+    	fr(i,0,n)
+    	{
+    		if(v[i]%2==1)
+    		{
+    			cout << i+1 << endl;
+    			break;
+    		}
+    	}
     }
-
-    cout << maxPos + abs(n - 1 - minPos) << endl;
-
-
-    
 }
 
 int32_t main() 

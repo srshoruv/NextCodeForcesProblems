@@ -13,43 +13,32 @@ typedef vector<int> vi;
 
 void solve()
 {
+	vector<string> v;
+	map<string,int> m;
     int n;
     cin >> n;
 
-    in(v,n);
-    int maxPos = 0, minPos = 0;
-
-    int minVal = *min_element(all(v));
-    int maxVal = *max_element(all(v));
-
-    fr(i,0,n)
+    while (n--)
     {
-    	if(v[i]==minVal)
+    	string s;
+    	cin >> s;
+
+    	v.push_back(s);
+
+    	for(auto it: v)
     	{
-    		minPos = i;
+    		m[it]++;
     	}
-
     }
 
-    fr(i,0,n)
+    for (auto vec : v)
     {
-
-        if(v[i]==maxVal)
-        {
-            maxPos = i;
-            break;
-        }
-
+    	auto it = m.find(vec);
+    	if (it->second == 1)
+    	{
+    		cout << "OK\n";
+    	}
     }
-
-
-    if ((maxPos > minPos) && (( n - 1 - minPos) != 0))
-    {
-    	minPos++;
-    }
-
-    cout << maxPos + abs(n - 1 - minPos) << endl;
-
 
     
 }

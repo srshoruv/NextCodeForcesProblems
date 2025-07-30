@@ -13,28 +13,25 @@ typedef vector<int> vi;
 
 void solve()
 {
-    string s,s1;
+    string s;
     cin >> s;
-    s1 = "HQ9";
 
-    bool found = false;
-
-    fr(i,0,s.length())
+    fr(i,0, s.length())
     {
-    	if (s1.find(s[i]) != string::npos)
+    	if (s[i]=='.')
     	{
-    		found = true;
-    		break;
+    		cout << '0';
     	}
-    }
-
-    if (found)
-    {
-    	cout << "YES\n";
-    }
-    else
-    {
-    	cout << "NO\n";
+    	else if (s[i]=='-' && s[i+1] =='.')
+    	{
+    		cout << '1';
+    		i++;
+    	}
+    	else
+    	{
+    		cout << '2';
+    		i++;
+    	}
     }
 }
 

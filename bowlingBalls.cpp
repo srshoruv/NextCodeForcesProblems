@@ -13,36 +13,28 @@ typedef vector<int> vi;
 
 void solve()
 {
-    string s,s1;
-    cin >> s;
-    s1 = "HQ9";
+    int n,x,y;
+    cin >> n >> x >> y;
 
-    bool found = false;
+    int count = 0;
 
-    fr(i,0,s.length())
+    for(int i = 0; i < n; i++)
     {
-    	if (s1.find(s[i]) != string::npos)
-    	{
-    		found = true;
-    		break;
-    	}
+    	int a;
+    	cin >> a;
+
+    	if (a >= x && a <= y) count++;
     }
 
-    if (found)
-    {
-    	cout << "YES\n";
-    }
-    else
-    {
-    	cout << "NO\n";
-    }
+    cout << count << endl;
 }
 
 int32_t main() 
 {
     fastio;
 
-	solve();
+    int t; cin >> t;
+    while(t--) solve();
 
     return 0;
 }
