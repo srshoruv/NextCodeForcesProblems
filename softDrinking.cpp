@@ -16,7 +16,7 @@ void solve()
     int n, k, l, c, d, p, nl, np;
     cin >> n >> k >> l >> c >> d >> p >> nl >> np;
 
-    int ans = min((k*l)/n,min(c*d,p/np)) / n;
+    int ans = min((k*l)/nl,min(c*d,p/np)) / n;
 
     cout << ans << endl;
 }

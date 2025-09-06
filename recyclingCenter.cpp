@@ -13,45 +13,34 @@ typedef vector<int> vi;
 
 void solve()
 {
-    int n, c;
+    int n, c, coin = 0;
     cin >> n >> c;
 
-    in(v,n);
+    vi v;
+    fr(i,0,n)
+    {
+        int x;
+        cin >> x;
+
+        if (x > c)
+        {
+            coin++;
+        }
+        else
+        {
+            v.push_back(x);
+        }
+    }
 
     sort(all(v));
 
-    int idx;
+    int j = 1;
 
-    fr(i,0,n)
+    for(int i = v.size()-1; i >= 0; i--)
     {
-    	if(v[i] > c)
-    	{
-    		idx = i;
-    		break;
-    	}
+        if (v[i] * j > c) coin++;
+        else j *= 2;
     }
-
-    int mult = 1;
-    int temp = idx;
-    int coin = 0;
-    int prev = 0;
-    --temp;
-
-    while(temp >= 0)
-    {
-    	if (v[temp] * mult > c)
-    	{
-    		prev++;
-    	}
-    	else
-    	{
-    		mult *= 2;
-    	}
-
-    	temp--;
-    }
-
-    coin += (n-idx+prev);
 
     cout << coin << endl;
 }

@@ -16,34 +16,17 @@ void solve()
     int n, k;
     cin >> n >> k;
 
-    vi odd;
-    vi even;
+    int mid = (n / 2) + (n % 2);
 
-    fr(i,1,n+1)
-    {
-    	if(i%2 == 1)
-    	{
-    		odd.push_back(i);
-    	}
-    	else
-    	{
-    		even.push_back(i);
-    	}
-    }
 
-    int mid = n / 2;
-    if (n%2 == 1)
-    {
-    	mid++;
-    }
 
     if (k > mid)
     {
-    	cout << even[k-mid-1] << endl;
+        cout << (k-mid) * 2 << endl;
     }
     else
     {
-    	cout << odd[k-1] << endl;
+        cout << (k-1) * 2 + 1 << endl;
     }
 
 }

@@ -1,5 +1,5 @@
-#include "bits/stdc++.h"
-//#include <bits/stdc++.h>
+// #include "bits/stdc++.h"
+// #include <bits/stdc++.h>
 using namespace std;
 
 #define int long long
@@ -45,9 +45,10 @@ void solve()
 
     	auto it = find(all(v1), sum);
 
-    	if(it != v1.end() || i == n - 1) 
+    	if(it != v1.end()) 
     	{
     		res++;
+            sum = 0;
     	}
     		 
 

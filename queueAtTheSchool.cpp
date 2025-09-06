@@ -15,30 +15,31 @@ void solve()
 {
     int n, x;
     cin >> n >> x;
-    string s;
+    string s, s1;
     cin >> s;
+
+    s1 = s;
 
     
 
     while (x--)
     {
-    	int i = 0;
     	fr(z,0,s.length())
     	{
     		
-	    	if (s[i] < s[i+1])
+	    	if (s[z] < s[z+1])
 	    	{
-	    		swap(s[i], s[i+1]);
-	    		i += 1;
+	    		swap(s1[z], s1[z+1]);
 	    	}
-	    	i++;
 
 
     	}
+
+        s = s1;
     	
     }
 
-    cout << s << endl;
+    cout << s1 << endl;
 }
 
 int32_t main() 

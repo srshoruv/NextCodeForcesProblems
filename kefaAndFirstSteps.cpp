@@ -21,7 +21,7 @@ void solve()
     int length = 1;
     int temp = 1;
 
-    fr(i,0,n)
+    fr(i,0,n-1)
     {
     	if(v[i] <= v[i+1])
     	{
@@ -29,12 +29,12 @@ void solve()
     	}
     	else
     	{
-    		length = max(length,temp);
     		temp = 1;
     	}
+        length = max(length,temp);
     }
-
-    cout << length;
+    
+    cout << length << endl;
 }
 
 int32_t main() 

@@ -16,15 +16,17 @@ void solve()
     int a, b;
     cin>> a >> b;
 
-    int ans = a;
+    int s = a, d = 0;
 
-    while (a / b)
+    while (s > 0)
     {
-    	ans += (a / b);
-    	a /= b;
+    	d++;
+        s--;
+
+        if (d % b == 0) s++;
     }
 
-    cout << ans << endl;
+    cout << d << endl;
 }
 
 int32_t main() 

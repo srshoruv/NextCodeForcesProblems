@@ -20,7 +20,7 @@ void solve()
     int count = 0;
 
 	
-	fr(i,0,n)
+	fr(i,0,n-k+1)
 	{
 		int temp = 0;
 		fr(j,i,i+k)
