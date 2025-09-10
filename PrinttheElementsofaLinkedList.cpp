@@ -15,11 +15,9 @@ typedef vector<int> vi;
 
 void solve()
 {
-    int n;
-    cin >> n;
-
-   
-    cout << 3 * (n/15) + min(3ll, n % 15 + 1) << endl;
+	int x;
+    cin >> x;
+    cout << x << endl;
 }
 
 int32_t main() 

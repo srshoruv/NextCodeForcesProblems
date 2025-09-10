@@ -15,11 +15,52 @@ typedef vector<int> vi;
 
 void solve()
 {
-    int n;
-    cin >> n;
+    int n,k;
+    cin >> n >> k;
 
+    in(v,n);
+    sort(all(v));
+
+    vi v1, v2;
+
+    int len = 1;
+
+    v1.push_back(0);
+
+    fr(i,0,n-1)
+    {
+    	if (v[i+1] - v[i] > k)
+    	{
+    		v1.push_back(i+1); 		
+    	}
+
+    }
+    v1.push_back(n);
+    v1.push_back(n);
+
+    fr(i,0,v1.size()-1)
+    {
+    	v2.push_back(v1[i+1]-v1[i]);
+    }
    
-    cout << 3 * (n/15) + min(3ll, n % 15 + 1) << endl;
+
+    int m = n;
+
+    m = *max_element(all(v2));
+
+    
+
+
+    // fr(i,0,v1.size())
+    // {
+    // 	if (m > v1[i]) m = v1[i];
+    // }
+
+    
+    cout << n - m << endl;
+
+
+ 
 }
 
 int32_t main() 

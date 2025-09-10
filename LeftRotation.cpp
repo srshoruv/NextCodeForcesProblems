@@ -15,19 +15,33 @@ typedef vector<int> vi;
 
 void solve()
 {
-    int n;
-    cin >> n;
+    int n,d;
+    cin >> n >> d;
 
-   
-    cout << 3 * (n/15) + min(3ll, n % 15 + 1) << endl;
+    in(v,n);
+
+    vi v1;
+
+    fr(i,d,n)
+    {
+    	v1.push_back(v[i]);
+    }
+    fr(i,0,d)
+    {
+    	v1.push_back(v[i]);
+    }
+
+    fr(i,0,n)
+    {
+    	cout << v1[i] << " ";
+    }
 }
 
 int32_t main() 
 {
     fastio;
 
-    int t; cin >> t;
-    while(t--) solve();
+    solve();
 
     return 0;
 }
