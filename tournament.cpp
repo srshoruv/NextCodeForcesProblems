@@ -2,51 +2,42 @@
 //#include <bits/stdc++.h>
 using namespace std;
 
-#define ll long long
+#define int long long
 #define endl '\n'
+#define all(x) (x).begin(), (x).end()
+#define fr(i,a,b) for(int i = a; i < b; i++)
+#define in(v,n)  vi v(n); fr(i,0,n) cin>>v[i];
+#define yes cout<<"YES"<<'\n'
+#define no cout<<"NO"<<'\n'
 #define fastio ios_base::sync_with_stdio(false); cin.tie(NULL);
 
-int main() {
+typedef vector<int> vi;
+
+void solve()
+{
+    int n,j,k;
+    cin >> n >> j >> k;
+
+    in(v,n);
+
+    int maxVal = *max_element(all(v));
+
+    if (k == 1)
+    {
+        if(v[j-1]==maxVal) yes;
+        else no;
+    }
+    else yes;
+
+
+}
+
+int32_t main() 
+{
     fastio;
 
-    int testCase;
-    cin >> testCase;
-
-    while (testCase--) 
-    {
-
-        int n, j , k, countB = 0, countS = 0;
-        cin >> n >>j >> k;
-
-        vector<int> v(n);
-
-        for (int i = 0; i < n; i++) 
-        {
-    		cin >> v[i];
-        }
-
-        int p = v[j-1];
-
-        for (int i = 0; i < n; i++)
-        {
-        	if (v[i] >= p && i != j-1) countB++;
-        }
-
-        countS = n - countB - 1;
-
-        int total = 
-        // cout << countB << endl;
-        if (countB <= k)
-        {
-        	cout << "YES\n";
-        }
-        else
-        {
-        	cout << "NO\n";
-        }
-
-
-    }
+    int t; cin >> t;
+    while(t--) solve();
 
     return 0;
 }

@@ -7,47 +7,35 @@ using namespace std;
 #define all(x) (x).begin(), (x).end()
 #define fr(i,a,b) for(int i = a; i < b; i++)
 #define in(v,n)  vi v(n); fr(i,0,n) cin>>v[i];
+#define yes cout<<"YES"<<'\n'
+#define no cout<<"NO"<<'\n'
 #define fastio ios_base::sync_with_stdio(false); cin.tie(NULL);
 
 typedef vector<int> vi;
 
 void solve()
 {
-    int n, k;
-    cin >> n >> k;
+    vi v1, v2;
 
-    in(v,n);
-
-    int minSum;
-    int idx;
-
-    fr(i,0,k)
+    fr(i,0,4)
     {
-        minSum += v[i];
+        int a, b;
+
+        cin >> a >> b;
+
+        v1.push_back(a);
     }
 
-    idx = 1;
-    int currSum = minSum;
-    fr(i,k,n)
-    {
-        currSum += v[i] - v[i-k];
-        if (currSum < minSum)
-        {
-            minSum = currSum;
-            idx = i-k+2;
-        }
-    }
-
-    cout << idx << endl;
-
-    
+    if (v1[0]!=v1[1]) cout << (v1[0]-v1[1]) * (v1[0]-v1[1]) << endl;
+    else cout << (v1[0]-v1[2])*(v1[0]-v1[2]) << endl;
 }
 
 int32_t main() 
 {
     fastio;
 
-	solve();
+    int t; cin >> t;
+    while(t--) solve();
 
     return 0;
 }

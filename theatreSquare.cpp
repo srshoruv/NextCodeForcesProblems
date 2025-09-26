@@ -16,7 +16,15 @@ void solve()
     int m,n,x;
     cin >> m >> n >> x;
 
-    cout << ceil((m+x-1)/x) * ceil((n+x-1)/x) << endl;
+    int l = 0, k = 0;
+
+    if ( m % x != 0) l = (m / x) + 1;
+    else l = m / x;
+
+    if ( n % x != 0) k = (n / x) + 1;
+    else k = (n / x);
+
+    cout << l * k << endl;
 }
 
 int32_t main() 

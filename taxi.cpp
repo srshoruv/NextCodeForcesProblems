@@ -24,27 +24,30 @@ void solve()
 
     int i = n-1, j = 0;
 
-    while(i >= j)
+    while (i >= j)
     {
-    	if(v[i]==4)
-    	{
-    		count++;
-    	}
-    	else if (v[i]+v[j] <= 4)
-    	{
-    		count++;
-    		j++;
-    	}
-    	else if (v[i]+v[j] > 4)
-    	{
-    		count++;
-    	}
-    	else
-    	{
-    		count++;
-    		j++;
-    	}
-    	i--;
+        if (v[i]==4)
+        {
+            count++;
+            i--;
+        }
+        else if (v[i]+v[j]==4)
+        {
+            count++;
+            i--;
+            j++;
+        }
+        else if (v[i] < 4)
+        {
+            int temp = v[i];
+            while (temp+v[j] <= 4)
+            {
+                temp += v[j];
+                j++;
+            }
+            count++;
+            i--;
+        }
     }
 
     cout << count << endl;

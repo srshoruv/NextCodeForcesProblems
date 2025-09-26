@@ -7,47 +7,47 @@ using namespace std;
 #define all(x) (x).begin(), (x).end()
 #define fr(i,a,b) for(int i = a; i < b; i++)
 #define in(v,n)  vi v(n); fr(i,0,n) cin>>v[i];
+#define yes cout<<"YES"<<'\n'
+#define no cout<<"NO"<<'\n'
 #define fastio ios_base::sync_with_stdio(false); cin.tie(NULL);
 
 typedef vector<int> vi;
 
 void solve()
 {
-    int n, k;
-    cin >> n >> k;
+    int n, count = 0, countRev = 0;
+    cin >> n;
 
-    in(v,n);
+    string s,s1;
+    cin >> s;
 
-    int minSum;
-    int idx;
+    s1 = s;
 
-    fr(i,0,k)
-    {
-        minSum += v[i];
-    }
-
-    idx = 1;
-    int currSum = minSum;
-    fr(i,k,n)
-    {
-        currSum += v[i] - v[i-k];
-        if (currSum < minSum)
-        {
-            minSum = currSum;
-            idx = i-k+2;
-        }
-    }
-
-    cout << idx << endl;
-
+    sort(all(s1));
+    // cout << s1 << endl;
     
+
+    fr(i,0,n)
+    {
+    	if(s[i] != s1[i]) count++;
+    }
+
+    sort(all(s1), greater<int> ());
+
+    fr(i,0,n)
+    {
+    	if(s[i] != s1[i]) countRev++;
+    }
+
+    cout << min(count,countRev) / 2 << endl;
 }
 
 int32_t main() 
 {
     fastio;
 
-	solve();
+    int t; cin >> t;
+    while(t--) solve();
 
     return 0;
 }

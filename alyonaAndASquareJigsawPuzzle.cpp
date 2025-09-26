@@ -1,4 +1,4 @@
-// #include "bits/stdc++.h"
+#include "bits/stdc++.h"
 // #include <bits/stdc++.h>
 using namespace std;
 
@@ -18,39 +18,28 @@ void solve()
 
     in(v,n);
 
-    int res = 1;
+    int res = 0;
 
     int sum = 0;
 
     vi v1;
 
-    int k = 0;
-
-    v1.push_back(8);
-
-    for(int i = 4; i < 15; i++)
+    fr(i,1,100)
     {
-    	v1.push_back(v1[k] + pow(2,i));
-    	k++;
+        if (i % 2) v1.push_back(i*i);
     }
 
-    // for(int i = 0; i < v1.size(); i++)
-    // {
-    // 	cout << v1[i] << " ";
-    // }
+    int temp = 0;
 
-    fr(i,1,n)
+    fr(i,0,n)
     {
-    	sum += v[i];
 
-    	auto it = find(all(v1), sum);
+        temp += v[i];
 
-    	if(it != v1.end()) 
-    	{
-    		res++;
-            sum = 0;
-    	}
-    		 
+        if (find(all(v1),temp) != v1.end())
+        {
+            res++;
+        }
 
     }
 

@@ -18,24 +18,10 @@ int main() {
         int x;
         cin >> x;
 
-        if (x <= 2)
-        {
-        	cout << "Alice\n";
-        }
-        else
-        {
-
-        if ((x % 4) % 2 == 1)
-        {
-        	cout << "Alice\n";
-        }
-        else
-        {
-        	cout << "Bob\n";
-        }
+        cout << (x % 4 ? "Alice" : "Bob") << endl;
     }
-
-    }
-
     return 0;
-}
+
+    }
+
+    
