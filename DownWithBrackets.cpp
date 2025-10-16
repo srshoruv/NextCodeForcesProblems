@@ -18,22 +18,26 @@ void solve()
     string s;
     cin >> s;
 
-    char c = s[0];
+    int count = 0, o = 0, c = 0;
 
-    fr(i,1,s.size())
     {
-    	if (s[i]=='(' && c == ')') 
+        if (count)
+        {
+            if(s[i]=='(') o++;
+            else c++;
+        }
+        
+    	if (s[i]==')' && s[i+1] == '(') 
 		{
-			yes;
-			return;
+			count++;
 		}
 
-		c = s[i];
-
-
+		
     }
 
-    no;
+
+    if (count && o >= 1 && o == c) yes;
+    else no;
 }
 
 int32_t main() 

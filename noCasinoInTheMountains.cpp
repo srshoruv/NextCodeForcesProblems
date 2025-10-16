@@ -17,26 +17,25 @@ void solve()
     cin >> n >> k;
 
     in(v,n);
-    int count = 0;
+    int count = 0, ans = 0;
 
 	
-	fr(i,0,n-k+1)
+	fr(i,0,n)
 	{
-		int temp = 0;
-		fr(j,i,i+k)
-		{
-			temp += v[j];
-		}
+		
+		if (v[i]==0) count++;
+		else count = 0;
 
-		if(!temp) 
+		if (count==k)
 		{
-			count++;
-			i += k;
+			ans++;
+			count=0;
+			i++;
 		}
 
 	}
 
-	cout << count << endl;
+	cout << ans << endl;
 
 }
 
