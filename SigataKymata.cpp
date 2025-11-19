@@ -14,51 +14,32 @@ using namespace std;
 
 typedef vector<int> vi;
 
-void solve()
-{
-    int n;
-    cin >> n;
-
-    in(v,n);
-    string s;
-    cin >> s;
-
-    if (s[0]=='1' || s[n-1] == '1')
-    {
-    	cout << -1 << endl;
-    	return;
+void solve() {
+    int n; cin >> n;
+    vector<int> a(n+1);
+    int mn = 1, mx = 1;
+    for (int i = 1; i <= n; i++) {
+        cin >> a[i];
+        if (a[i] < a[mn]) mn = i;
+        if (a[i] > a[mx]) mx = i;
     }
-    else
-    {
-    	int startIdx = 0, endIdx = 0;
-    	fr(i,0,n)
-    	{
-    		if(v[i]==1)
-    		{
-    			startIdx = i + 1;
-    		}
-    		else if (v[i]==n)
-    		{
-    			endIdx = i + 1;
-    		}
-    	}
-
-    	int temp = min(startIdx,endIdx);
-    	endIdx = max(startIdx,endIdx);
-    	startIdx = temp;
-
-    	fr(i,0,n)
-    	{
-    		if (s[i]=='1' && (i < startIdx))
-    		{
-    			cout << -1 << endl;
-    			return;
-    		}
-    	}
-
-    	cout << 1 << endl;
-    	cout << startIdx << " " << endIdx << endl;
+    string t; cin >> t;
+    t = " " + t;
+    if (t[1] == '1' || t[n] == '1') {
+        cout << -1 << "\n";
+        return;
     }
+    if (t[mn] == '1' || t[mx] == '1') {
+        cout << -1 << "\n";
+        return;
+    }
+    cout << 5 << "\n";
+    cout << 1 << " " << mn << "\n";
+    cout << 1 << " " << mx << "\n";
+    cout << mn << " " << n << "\n";
+    cout << mx << " " << n << "\n";
+    cout << min(mn, mx) << " " << max(mn, mx) << "\n";
+
 }
 
 int32_t main() 
