@@ -1,6 +1,1 @@
-NO
-YES
-YES
-NO
-NO
-YES
+10001
